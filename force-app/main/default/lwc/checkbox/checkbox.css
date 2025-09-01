@@ -1,0 +1,30 @@
+.slds-form-element {
+    padding-top: 0.25rem;
+}
+
+.slds-checkbox {
+    display: flex !important;
+}
+
+.slds-checkbox .slds-form-element__label {
+    padding-top: 0 !important;
+}
+
+.read-only {
+    pointer-events: none;
+}
+
+.read-only .slds-form-element__label {
+    pointer-events: auto;
+}
+
+.slds-form-element__label {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    word-break: auto-phrase;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+    display: inline-block;
+}
