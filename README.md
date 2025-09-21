@@ -1,4 +1,4 @@
-# salesforce-lwc-checkbox
+# checkbox
 
 A reusable Lightning Web Component (LWC) that offers a more flexible and customizable checkbox than the standard Salesforce checkbox component, making it easy to adapt to a variety of use cases.
 
