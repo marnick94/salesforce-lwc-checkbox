@@ -52,8 +52,8 @@ You can use this component inside your Lightning Web Components, Aura components
 |---------------------|-------------|-------------|-------------------------------------------------------|
 | `blur`              | None | None | Removes focus from the checkbox. |
 | `focus`             | None | None | Sets focus on the checkbox. |
-| `checkValidity`     | None | `Boolean` | Checks if the input is valid. Returns `false` if:<br>•&nbsp;&nbsp;`readonly = false` and custom validity is set<br>•&nbsp;&nbsp;`readonly = false` AND `checked = false` AND `required = true`<br>Otherwise returns `true`. |
-| `reportValidity`    | None | `Boolean` | Displays the error messages and returns `false` if the input is invalid. If the input is valid, `reportValidity()` clears displayed error messages and returns `true`. |
+| `checkValidity`     | None | `Boolean` | Checks if the input is valid. Returns `false` if:<br>•&nbsp;&nbsp;`readonly = false` and custom validity is set<br>•&nbsp;&nbsp;`readonly = false` AND `required = true` AND `checked = false`<br>Otherwise returns `true`. |
+| `reportValidity`    | None | `Boolean` | Displays the error messages and returns `false` if the checkbox is invalid. If the checkbox is valid, `reportValidity()` clears displayed error messages and returns `true`. |
 | `setCustomValidity` | `message` : `String` | None | Sets a custom error message to be displayed immediately. If `message` is [`<blank>`, `null`, `undefined`], custom validity is unset. |
 
 ### Events
