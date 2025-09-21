@@ -11,6 +11,7 @@ A reusable Lightning Web Component (LWC) for Salesforce that provides a customiz
 - [Installation / Deployment](#installation--deployment)
 - [Usage](#usage)
   - [Properties (API)](#properties-api)
+  - [Methods (API)](#methods-api)
   - [Events](#events)
   - [Examples](#examples)
 - [Styling / Customization](#styling--customization)
@@ -56,30 +57,37 @@ A reusable Lightning Web Component (LWC) for Salesforce that provides a customiz
 
 ## Usage
 
-After deployment, you can use the component inside other LWCs, in Lightning App Builder, Record Pages, or Aura components.
+After deployment, you can use the component inside other LWCs.
 
 ### Properties (API)
 
-| Property   | Type      | Required | Default | Description                                       |
-|------------|-----------|----------|---------|---------------------------------------------------|
-| `label`    | `String`  | no       | `''`    | Text label displayed next to the checkbox         |
-| `checked`  | `Boolean` | no       | `false` | Initial checked state                             |
-| `disabled` | `Boolean` | no       | `false` | If `true`, the checkbox is read-only / not clickable |
+| Property                   | Type      | Required | Default | Description                                           |
+|----------------------------|-----------|----------|---------|-------------------------------------------------------|
+| `checked`                  | `Boolean` | No       | `false` | State of the checkbox.                                |
+| `value`                    | `Boolean` | No       | `false` | Same as `checked` property.                           |
+| `readonly`                 | `Boolean` | No       | `false` | If `true`, the checkbox is read-only                  |
+| `required`                 | `Boolean` | No       | `false` | If `true`, the checkbox is required (must be checked) |
+| `messageWhenValueMissing`  | `String`  | No       | `false` | Error message displayed when the checkbox is `required` and has not been set to `true`. The default value is "Complete this field." |
+
+### Methods (API)
+
+| Method              | Arguments   | Return Type | Description                                           |
+|---------------------|-------------|-------------|-------------------------------------------------------|
+| `blur`              | None | None | Removes focus from the checkbox. |
+| `focus`             | None | None | Sets focus on the checkbox. |
+| `checkValidity`     | None | `Boolean` | Checks if the input is valid. Returns `false` if:<br>•&nbsp;&nbsp;`readonly = false` and custom validity is set<br>•&nbsp;&nbsp;`readonly = false` AND `checked = false` AND `required = true`<br>Otherwise returns `true` |
+| `reportValidity`    | None | `Boolean` | Displays the error messages and returns `false` if the input is invalid. If the input is valid, `reportValidity()` clears displayed error messages and returns `true`. |
+| `setCustomValidity` | `message` : `String` | None | Sets a custom error message to be displayed immediately. If `message` is [`<blank>`, `null`, `undefined`], custom validity is unset. |
 
 ### Events
 
-- `change` — fired when the user toggles the checkbox.  
-  The event detail contains the new `checked` value.
-
-  ```js
-  {
-    detail: {
-      checked: true/false
-    }
-  }
-  ```
-
----
+| Event               | Description                 |
+|---------------------|-----------------------------|
+| `change`            | Checkbox state has changed. |
+| `click`             | Checkbox has been clicked.  |
+| `input`             | Same as `click`             |
+| `focus`             | Checkbox has gained focus.  |
+| `blur`              | Checkbox has lost focus.    |
 
 ## Examples
 
