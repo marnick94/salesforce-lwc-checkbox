@@ -13,7 +13,7 @@
                 <abbr if:true={required} class="slds-required" title="required">*</abbr><slot></slot>
             </span>
         </label>
-        <div if:true={showError} class="slds-has-error">
+        <div if:true={_showError} class="slds-has-error">
             <div class="slds-form-element__help slds-p-left_large">{errorMessage}</div>
         </div>
     </div>

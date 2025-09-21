@@ -1,24 +1,24 @@
 import { LightningElement, api } from 'lwc';
 
+const DEFAULT_MESSAGE_WHEN_VALUE_MISSING = 'Complete this field.';
+
 export default class Checkbox extends LightningElement {
-    @api checked = false;
-    @api readOnly = false;
-    @api required = false;
-    @api messageWhenValueMissing = 'Complete this field.';
+    _checked = false;
+    _readOnly = false;
+    _required = false;
+    _validity = true;
+    _showError = false;
+    _parent = undefined;
+    _customValidityErrorMsg = "";
+    _messageWhenValueMissing = DEFAULT_MESSAGE_WHEN_VALUE_MISSING;
 
-    validity = true;
-    showError = false;
-    customValidityErrorMsg = "";
-
-    get errorMessage() {
-        return this.customValidityErrorMsg ? this.customValidityErrorMsg : this.messageWhenValueMissing;
+    @api
+    get checked() {
+        return this._checked;
     }
 
-    get formElementClass() {
-        let classes = 'slds-form-element';
-        classes += this.showError ? ' slds-has-error' : '';
-        classes += this.readOnly ? ' read-only' : '';
-        return classes;
+    set checked(value) {
+        this._checked = !!value;
     }
 
     @api
@@ -26,42 +26,85 @@ export default class Checkbox extends LightningElement {
         return this.checked;
     }
 
-    set value(checked) {
-        this.checked = !!checked;
+    set value(value) {
+        this.checked = !!value;
+    }
+
+    @api
+    get readOnly() {
+        return this._readOnly;
+    }
+
+    set readOnly(value) {
+        if(this.hasParent) return;
+
+        this._readOnly = !!value;
+    }
+
+    @api
+    get required() {
+        return this._required;
+    }
+
+    set required(value) {
+        if(this.hasParent) return;
+
+        this._required = !!value;
+    }
+
+    @api
+    get messageWhenValueMissing() {
+        return this._messageWhenValueMissing;
+    }
+
+    set messageWhenValueMissing(value) {
+        if(this.hasParent) return;
+
+        this._messageWhenValueMissing = value ? value : DEFAULT_MESSAGE_WHEN_VALUE_MISSING;
     }
 
     @api
     blur() {
+        if(this.hasParent) return;
+
         this.template.querySelector("input").blur();
     }
 
     @api
     focus() {
+        if(this.hasParent) return;
+
         this.template.querySelector("input").focus();
     }
 
     @api
     checkValidity() {
-        if(this.customValidityErrorMsg && !this.readOnly) {
-            this.validity = false;
+        if(this.hasParent) return;
+
+        if(this._customValidityErrorMsg && !this.readOnly) {
+            this._validity = false;
         } else if(this.required && !this.readOnly) {
-            this.validity = this.checked;
+            this._validity = this.checked;
         } else {
-            this.validity = true;
+            this._validity = true;
         }
         
-        return this.validity;
+        return this._validity;
     }
     
     @api
     reportValidity() {
-        this.showError = !this.checkValidity();
-        return this.validity;
+        if(this.hasParent) return;
+
+        this._showError = !this.checkValidity();
+        return this._validity;
     }
 
     @api
     setCustomValidity(message) {
-        this.customValidityErrorMsg = message;
+        if(this.hasParent) return;
+
+        this._customValidityErrorMsg = message;
         this.reportValidity();
     }
 
@@ -87,5 +130,37 @@ export default class Checkbox extends LightningElement {
         this.reportValidity();
         this.dispatchEvent(new CustomEvent("blur"));
     }
-    
+
+    get errorMessage() {
+        return this._customValidityErrorMsg ? this._customValidityErrorMsg : this.messageWhenValueMissing;
+    }
+
+    get formElementClass() {
+        let classes = 'slds-form-element';
+        classes += this._showError ? ' slds-has-error' : '';
+        classes += this.readOnly ? ' read-only' : '';
+        return classes;
+    }
+
+    get hasParent() {
+        return !!this._parent;
+    }
+
+    @api
+    bind(value) {
+        if(!value) {
+            this._parent = undefined;
+            return;
+        }
+
+        if(value.tagName == 'C-CHECKBOX-GROUP') {
+            this._parent = value;
+            this._readOnly = this._parent.readOnly;
+            this._required = false;
+            this._validity = true;
+            this._showError = false;
+            this._customValidityErrorMsg = "";
+            this._messageWhenValueMissing = DEFAULT_MESSAGE_WHEN_VALUE_MISSING;
+        }
+    }
 }
