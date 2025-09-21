@@ -192,7 +192,7 @@ export default class ParentComponent extends LightningElement {
 
 ### Example 6: Label with hyperlink
 
-<img width="568" height="85" alt="image" src="https://github.com/user-attachments/assets/24a05d3c-2303-419d-83d2-5b8f48c15687" />
+<img width="568" height="85" alt="image" src="https://github.com/user-attachments/assets/24a05d3c-2303-419d-83d2-5b8f48c15687" /><br>
 
 ```html
 <!-- parentComponent.html -->
