@@ -148,7 +148,7 @@ export default class Checkbox extends LightningElement {
     }
 
     @api
-    bind(value) {
+    bind(value) {   // for internal use only
         if(!value) {
             this._parent = undefined;
             return;
