@@ -44,7 +44,7 @@ You can use this component inside your Lightning Web Components, Aura components
 | `value`                    | `Boolean` | No       | `false` | Same as `checked` property.                            |
 | `readonly`                 | `Boolean` | No       | `false` | If `true`, the checkbox is read-only.                  |
 | `required`                 | `Boolean` | No       | `false` | If `true`, the checkbox is required (must be checked). |
-| `messageWhenValueMissing`  | `String`  | No       | `Complete this field.` | Error message displayed when the checkbox is `required` and has not been set to `true`. |
+| `messageWhenValueMissing`  | `String`  | No       | `Complete this field.` | Error message shown when the checkbox is `required` and has not been `checked`. |
 
 ### Methods (API)
 
