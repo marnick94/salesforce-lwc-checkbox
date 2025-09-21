@@ -85,7 +85,7 @@ After deployment, you can use the component inside other LWCs.
 |---------------------|-----------------------------|
 | `change`            | Checkbox state has changed. |
 | `click`             | Checkbox has been clicked.  |
-| `input`             | Same as `click`.            |
+| `input`             | Same as `change`.           |
 | `focus`             | Checkbox has gained focus.  |
 | `blur`              | Checkbox has lost focus.    |
 
@@ -112,7 +112,7 @@ export default class ParentComponent extends LightningElement {
   @track accepted = false;
 
   handleCheckboxChange(event) {
-    this.accepted = event.detail.checked;
+    this.accepted = event.target.checked;
   }
 }
 ```
