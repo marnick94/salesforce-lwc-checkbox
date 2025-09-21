@@ -157,13 +157,37 @@ export default class ParentComponent extends LightningElement {
 <!-- parentComponent.html -->
 <template>
   <c-checkbox
-    checked="false"
+    checked={accepted}
     onchange={handleCheckboxChange}
     message-when-value-missing="This field is required."
     required>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
   </c-checkbox>
 </template>
+```
+
+### Example 5: Custom Validity
+
+![custom_validity](https://github.com/user-attachments/assets/2ed84126-346c-4219-8cbd-fcf00bb180a1)
+
+```html
+<!-- parentComponent.html -->
+<template>
+  <lightning-button label="Toogle Custom Validity" onclick={handleCustomValidityToogle}></lightning-button>
+  <c-checkbox>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</c-checkbox>
+</template>
+```
+
+```js
+// parentComponent.js
+import { LightningElement } from 'lwc';
+
+export default class ParentComponent extends LightningElement {
+  handleCustomValidityToogle(event) {
+      const checkbox = this.template.querySelector('c-checkbox');
+      checkbox.setCustomValidity(checkbox.checkValidity() ? 'This field is required.' : '');
+  }
+}
 ```
 
 ## Styling / Customization
