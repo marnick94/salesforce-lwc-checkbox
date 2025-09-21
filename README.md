@@ -7,8 +7,6 @@ A reusable Lightning Web Component (LWC) for Salesforce that offers a more flexi
 ## Table of Contents
 
 - [Features](#features)
-- [Requirements](#requirements)
-- [Installation / Deployment](#installation--deployment)
 - [Usage](#usage)
   - [Properties (API)](#properties-api)
   - [Methods (API)](#methods-api)
@@ -34,28 +32,9 @@ A reusable Lightning Web Component (LWC) for Salesforce that offers a more flexi
 
 ---
 
-## Installation / Deployment
-
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/marnick94/salesforce-lwc-checkbox.git
-   ```
-
-2. Move the files into your Salesforce DX project folder, for example:
-   `force-app/main/default/lwc/checkbox`
-
-3. Deploy to your Salesforce org:
-
-   ```bash
-   sfdx force:source:deploy -p force-app/main/default/lwc/checkbox --targetusername <your_org_alias>
-   ```
-
----
-
 ## Usage
 
-After deployment, you can use the component inside other LWCs.
+You can use this component inside your LWCs. Here some [examples](#examples).
 
 ### Properties (API)
 
