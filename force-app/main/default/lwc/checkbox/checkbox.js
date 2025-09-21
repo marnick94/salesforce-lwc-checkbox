@@ -111,6 +111,7 @@ export default class Checkbox extends LightningElement {
     handleChange(event) {
         this.checked = event.currentTarget.checked;
         this.dispatchEvent(new CustomEvent("change"));
+        this.reportValidity();
     }
 
     handleClick(event) {
