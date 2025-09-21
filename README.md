@@ -93,6 +93,8 @@ After deployment, you can use the component inside other LWCs.
 
 ### Example 1: Basic Usage
 
+![base_checkbox](https://github.com/user-attachments/assets/462a805f-2e30-48bb-b7d2-98b837c72f99)
+
 ```html
 <!-- parentComponent.html -->
 <template>
@@ -119,6 +121,8 @@ export default class ParentComponent extends LightningElement {
 
 ### Example 2: Required Checkbox
 
+![required_checkbox](https://github.com/user-attachments/assets/a53699c8-2c0a-4f6d-adcb-b348c90276b7)
+
 ```html
 <!-- parentComponent.html -->
 <template>
@@ -131,6 +135,8 @@ export default class ParentComponent extends LightningElement {
 ```
 
 ### Example 3: Readonly Checkbox
+
+![readonly_checkbox](https://github.com/user-attachments/assets/d7c03cd2-788a-4a86-9b55-2b0db54aacf5)
 
 ```html
 <!-- parentComponent.html -->
@@ -145,10 +151,14 @@ export default class ParentComponent extends LightningElement {
 
 ### Example 4: Custom Missing Value Message
 
+![custom_missing_message](https://github.com/user-attachments/assets/1695bcdf-4221-43fc-b4a9-d922f40fe9b1)
+
 ```html
 <!-- parentComponent.html -->
 <template>
   <c-checkbox
+    checked="false"
+    onchange={handleCheckboxChange}
     message-when-value-missing="This field is required."
     required>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
