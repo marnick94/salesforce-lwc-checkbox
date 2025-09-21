@@ -61,13 +61,13 @@ After deployment, you can use the component inside other LWCs.
 
 ### Properties (API)
 
-| Property                   | Type      | Required | Default | Description                                           |
-|----------------------------|-----------|----------|---------|-------------------------------------------------------|
-| `checked`                  | `Boolean` | No       | `false` | State of the checkbox.                                |
-| `value`                    | `Boolean` | No       | `false` | Same as `checked` property.                           |
-| `readonly`                 | `Boolean` | No       | `false` | If `true`, the checkbox is read-only                  |
-| `required`                 | `Boolean` | No       | `false` | If `true`, the checkbox is required (must be checked) |
-| `messageWhenValueMissing`  | `String`  | No       | `false` | Error message displayed when the checkbox is `required` and has not been set to `true`. The default value is "Complete this field." |
+| Property                   | Type      | Required | Default | Description                                            |
+|----------------------------|-----------|----------|---------|--------------------------------------------------------|
+| `checked`                  | `Boolean` | No       | `false` | State of the checkbox.                                 |
+| `value`                    | `Boolean` | No       | `false` | Same as `checked` property.                            |
+| `readonly`                 | `Boolean` | No       | `false` | If `true`, the checkbox is read-only.                  |
+| `required`                 | `Boolean` | No       | `false` | If `true`, the checkbox is required (must be checked). |
+| `messageWhenValueMissing`  | `String`  | No       | `false` | Error message displayed when the checkbox is `required` and has not been set to `true`. The default value is `Complete this field.`. |
 
 ### Methods (API)
 
@@ -75,7 +75,7 @@ After deployment, you can use the component inside other LWCs.
 |---------------------|-------------|-------------|-------------------------------------------------------|
 | `blur`              | None | None | Removes focus from the checkbox. |
 | `focus`             | None | None | Sets focus on the checkbox. |
-| `checkValidity`     | None | `Boolean` | Checks if the input is valid. Returns `false` if:<br>•&nbsp;&nbsp;`readonly = false` and custom validity is set<br>•&nbsp;&nbsp;`readonly = false` AND `checked = false` AND `required = true`<br>Otherwise returns `true` |
+| `checkValidity`     | None | `Boolean` | Checks if the input is valid. Returns `false` if:<br>•&nbsp;&nbsp;`readonly = false` and custom validity is set<br>•&nbsp;&nbsp;`readonly = false` AND `checked = false` AND `required = true`<br>Otherwise returns `true`. |
 | `reportValidity`    | None | `Boolean` | Displays the error messages and returns `false` if the input is invalid. If the input is valid, `reportValidity()` clears displayed error messages and returns `true`. |
 | `setCustomValidity` | `message` : `String` | None | Sets a custom error message to be displayed immediately. If `message` is [`<blank>`, `null`, `undefined`], custom validity is unset. |
 
@@ -85,23 +85,22 @@ After deployment, you can use the component inside other LWCs.
 |---------------------|-----------------------------|
 | `change`            | Checkbox state has changed. |
 | `click`             | Checkbox has been clicked.  |
-| `input`             | Same as `click`             |
+| `input`             | Same as `click`.            |
 | `focus`             | Checkbox has gained focus.  |
 | `blur`              | Checkbox has lost focus.    |
 
 ## Examples
 
-### Example 1: Basic Usage in an LWC
+### Example 1: Basic Usage
 
 ```html
 <!-- parentComponent.html -->
 <template>
   <c-checkbox
-    label="Accept terms and conditions"
     checked={accepted}
     onchange={handleCheckboxChange}>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
   </c-checkbox>
-  <p>Checkbox state: {accepted}</p>
 </template>
 ```
 
@@ -118,25 +117,44 @@ export default class ParentComponent extends LightningElement {
 }
 ```
 
-### Example 2: Disabled Checkbox
+### Example 2: Required Checkbox
 
 ```html
+<!-- parentComponent.html -->
 <template>
   <c-checkbox
-    label="Read-only example"
-    checked={true}
-    disabled={true}
-    onchange={handleCheckboxChange}>
+    onchange={handleCheckboxChange}
+    required>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
   </c-checkbox>
 </template>
 ```
 
-### Example 3: Usage in Aura / Flows / Record Page
+### Example 3: Readonly Checkbox
 
-You can include this component in a Lightning Page or Aura component (if exposed in the meta file), or make it available for Salesforce Flows if configured.  
-Usage and attributes remain the same.
+```html
+<!-- parentComponent.html -->
+<template>
+  <c-checkbox
+    checked="true"
+    readonly>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  </c-checkbox>
+</template>
+```
 
----
+### Example 4: Custom Missing Value Message
+
+```html
+<!-- parentComponent.html -->
+<template>
+  <c-checkbox
+    message-when-value-missing="This field is required."
+    required>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  </c-checkbox>
+</template>
+```
 
 ## Styling / Customization
 
