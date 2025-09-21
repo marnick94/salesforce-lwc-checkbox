@@ -96,7 +96,7 @@ export default class ParentComponent extends LightningElement {
 }
 ```
 
-### Example 2: Required Checkbox
+### Example 2: Required
 
 ![required_checkbox](https://github.com/user-attachments/assets/a53699c8-2c0a-4f6d-adcb-b348c90276b7)
 
@@ -111,7 +111,7 @@ export default class ParentComponent extends LightningElement {
 </template>
 ```
 
-### Example 3: Readonly Checkbox
+### Example 3: Readonly
 
 ![readonly_checkbox](https://github.com/user-attachments/assets/d7c03cd2-788a-4a86-9b55-2b0db54aacf5)
 
