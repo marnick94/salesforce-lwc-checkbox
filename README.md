@@ -34,7 +34,7 @@ A reusable Lightning Web Component (LWC) for Salesforce that offers a more flexi
 
 ## Usage
 
-You can use this component inside your Lightning Web Components, Aura components, or together with the companion [`checkbox-group`](https://github.com/marnick94/salesforce-lwc-checkbox-group) component.
+You can use this component inside your Lightning Web Components, Aura components or together with the companion [`checkbox-group`](https://github.com/marnick94/salesforce-lwc-checkbox-group) component.
 
 ### Properties (API)
 
