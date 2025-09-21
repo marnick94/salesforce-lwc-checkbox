@@ -1,6 +1,6 @@
 # salesforce-lwc-checkbox
 
-A reusable Lightning Web Component (LWC) for Salesforce that provides a customizable checkbox component for use in various contexts.
+A reusable Lightning Web Component (LWC) for Salesforce that offers a more flexible and customizable checkbox than the standard Salesforce checkbox component, making it easy to adapt to a variety of use cases.
 
 ---
 
@@ -188,6 +188,19 @@ export default class ParentComponent extends LightningElement {
       checkbox.setCustomValidity(checkbox.checkValidity() ? 'This field is required.' : '');
   }
 }
+```
+
+### Example 6: Label with hyperlink
+
+<img width="568" height="85" alt="image" src="https://github.com/user-attachments/assets/24a05d3c-2303-419d-83d2-5b8f48c15687" />
+
+```html
+<!-- parentComponent.html -->
+<template>
+  <c-checkbox>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Take a look <a href="https://www.lipsum.com" target="_blank">here</a>.
+  </c-checkbox>
+</template>
 ```
 
 ## Styling / Customization
