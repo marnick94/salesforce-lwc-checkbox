@@ -28,7 +28,7 @@ A reusable Lightning Web Component (LWC) for Salesforce that offers a more flexi
 - Option to make the checkbox **required** (must be checked) with a customizable error message.  
   - If the checkbox is required and left unchecked, the error message appears when it loses focus or when the `reportValidity()` method is called  
 - Ability to **invalidate the checkbox programmatically** and show a custom error message using the `setCustomValidity(message)` method  
-- Support for creating a **validation group** using the accompanying `checkbox-group` component
+- Support for creating a **validation group** using the accompanying [`checkbox-group`](https://github.com/marnick94/salesforce-lwc-checkbox-group) component
 
 ---
 
