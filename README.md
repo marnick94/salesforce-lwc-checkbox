@@ -203,6 +203,19 @@ export default class ParentComponent extends LightningElement {
 </template>
 ```
 
+### Example 7: Long label
+
+<img width="780" height="263" alt="image" src="https://github.com/user-attachments/assets/858818e8-f3f7-45e5-9e12-c49c417ce580" /><br>
+
+```html
+<!-- parentComponent.html -->
+<template>
+  <c-checkbox>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque efficitur elit ac leo aliquam, sed vestibulum dolor feugiat. Fusce sit amet arcu auctor, volutpat sem nec, porta ante. Morbi sit amet libero finibus, semper tortor et, aliquet urna. Sed cursus euismod purus id malesuada. Sed eros leo, convallis sed convallis id, elementum at elit. Praesent ullamcorper ligula id ex lacinia, eu luctus mauris laoreet. Sed eleifend interdum dolor eu vestibulum. Integer molestie diam eu sapien cursus pharetra. Ut ultrices nunc sem, nec hendrerit neque maximus id. Maecenas molestie nulla ac leo maximus, ut pulvinar arcu efficitur. Duis condimentum vel ipsum sollicitudin consequat. Curabitur lacinia nisl sit amet finibus gravida. Integer efficitur, neque a porttitor mollis, velit risus commodo massa, eget fermentum est massa sit amet quam. Ut quis urna hendrerit, viverra felis mollis, tempor leo. Integer mollis finibus nulla sit amet tempor.
+  </c-checkbox>
+</template>
+```
+
 ## Styling / Customization
 
 You can customize styles (colors, size, margins, etc.) by editing the component's `.css` file.  
