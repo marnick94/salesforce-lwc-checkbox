@@ -22,17 +22,15 @@ A reusable Lightning Web Component (LWC) for Salesforce that offers a more flexi
 
 ## Features
 
-- Custom visual checkbox (checked / unchecked)
-- Interactive behavior that emits events to parent components when the state changes
-- Configurable label, initial state, and enable/disable options
-
----
-
-## Requirements
-
-- Salesforce org with LWC support
-- Compatible API version (e.g. 50.0+)
-- Permissions to deploy LWC components
+- Label is **more flexible** than the standard:
+  - it can be **blank** or missing
+  - it can contains **hyperlinks** or other text-oriented HTML tags
+  - it's always displayed to the **right of the checkbox** and formatted as a single block, even when the label text is long  
+- Option to set the checkbox as **read-only**  
+- Option to make the checkbox **required** (must be checked) with a customizable error message.  
+  - If the checkbox is required and left unchecked, the error message appears when it loses focus or when the `reportValidity()` method is called  
+- Ability to **invalidate the checkbox programmatically** and show a custom error message using the `setCustomValidity(message)` method  
+- Support for creating a **validation group** using the accompanying `checkbox-group` component
 
 ---
 
